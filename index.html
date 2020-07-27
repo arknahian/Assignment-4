@@ -18,31 +18,31 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input class="form-control" type="text">
+                    <input id="current-display-number" class="form-control" type="text">
                     <div class="numbers">
                         <div class="calc-body">
                             <div class="calc-button-row">
-                              <div class="button">7</div>
-                              <div class="button">8</div>
-                              <div class="button">9</div>
+                              <div id="number-7" class="button">7</div>
+                              <div id="number-8" class="button">8</div>
+                              <div id="number-9" class="button">9</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class="button">4</div>
-                              <div class="button">5</div>
-                              <div class="button">6</div>
+                              <div id="number-4" class="button">4</div>
+                              <div id="number-5" class="button">5</div>
+                              <div id="number-6" class="button">6</div>
                             </div>
                             <div class="calc-button-row">
-                              <div class="button">1</div>
-                              <div class="button">2</div>
-                              <div class="button">3</div>
+                              <div id="number-1" class="button">1</div>
+                              <div id="number-2" class="button">2</div>
+                              <div id="number-3" class="button">3</div>
                             </div>
                             <div class="calc-button-row">
-                                <div class="button"><</div>
-                                <div class="button">0</div>
-                                <div class="button">C</div>
+                                <div id="delete-num" class="button"> < </div>
+                                <div id="number-0" class="button">0</div>
+                                <div id="clear-btn" class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <button type="submit" id="submit-button" class="submit-btn">Submit</button>
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -50,8 +50,8 @@
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p class="notify" id="unmatched-button" style="display: none;">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify" id="matched-button" style="display: none;">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
     <script>
@@ -70,6 +70,116 @@
                
             } 
         })
+        // SHOW NUMBER ON WINDOW
+
+
+//number 7
+
+        const number7 = document.getElementById("number-7");
+        number7.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 7;
+        document.getElementById("current-display-number").value = showNumber;
+        
+        })
+//number 8
+        const number8 = document.getElementById("number-8");
+        number8.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 8;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+//number 9
+const number9 = document.getElementById("number-9");
+        number9.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 9;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+//number 4
+    const number4 = document.getElementById("number-4");
+            number4.addEventListener("click", function(){
+            var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+            var showNumber = CurrentDisplayNumber + 4;
+            document.getElementById("current-display-number").value = showNumber;
+            })
+//number 5
+    const number5 = document.getElementById("number-5");
+        number5.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 5;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+//number 6
+    const number6 = document.getElementById("number-6");
+        number6.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 6;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+    //number 1
+    const number1 = document.getElementById("number-1");
+        number1.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 1;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+//number 2 
+const number2 = document.getElementById("number-2");
+        number2.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 2;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+
+//number 3
+const number3 = document.getElementById("number-3");
+        number3.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 3;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+//number 0 
+const number0 = document.getElementById("number-0");
+        number0.addEventListener("click", function(){
+        var CurrentDisplayNumber = document.getElementById('current-display-number').value;
+        var showNumber = CurrentDisplayNumber + 0;
+        document.getElementById("current-display-number").value = showNumber;
+        })
+
+
+//number delete 
+ 
+const deleteNum = document.getElementById("delete-num");
+        deleteNum.addEventListener("click", function(){
+            let deleteNum = document.getElementById('current-display-number').value;
+        const newNum = (deleteNum).toString().slice(0, -1);
+            document.getElementById("current-display-number").value = newNum ;
+        })
+// all clear 
+const clearButton = document.getElementById("clear-btn");
+        clearButton.addEventListener("click", function(){
+            let clearNum = document.getElementById('current-display-number').value;
+            clearNum = " ";
+            const showInterface = clearNum;
+            document.getElementById('current-display-number').value = showInterface;
+        })
+// submit button 
+        const submitButton = document.getElementById("submit-button");
+        submitButton.addEventListener("click", function(){
+            if (document.getElementById('current-display-number').value === document.getElementById('get-pin').value) {
+                document.getElementById("matched-button").style.display = "block";
+                document.getElementById("unmatched-button").style.display = "none";
+            }
+            if (document.getElementById('current-display-number').value != document.getElementById('get-pin').value) {
+                document.getElementById("unmatched-button").style.display = "block";
+                document.getElementById("matched-button").style.display = "none";
+            }
+        })
+
+        
+
+
     </script>
 </body>
 </html>
