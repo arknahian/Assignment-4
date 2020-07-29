@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button type="submit" id="submit-button" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left"> <span id="notification">0</span> try left</p>
                             </div>
                     </div>
                 </div>
@@ -160,7 +160,7 @@ const deleteNum = document.getElementById("delete-num");
 const clearButton = document.getElementById("clear-btn");
         clearButton.addEventListener("click", function(){
             let clearNum = document.getElementById('current-display-number').value;
-            clearNum = " ";
+            clearNum = "";
             const showInterface = clearNum;
             document.getElementById('current-display-number').value = showInterface;
         })
@@ -174,9 +174,15 @@ const clearButton = document.getElementById("clear-btn");
             if (document.getElementById('current-display-number').value != document.getElementById('get-pin').value) {
                 document.getElementById("unmatched-button").style.display = "block";
                 document.getElementById("matched-button").style.display = "none";
-            }
+                const tryNum = document.getElementById("notification").innerText;
+                const convertNum = +tryNum;
+                const finalShow = convertNum + 1;
+                document.getElementById("notification").innerText = finalShow;
+                    
+            } 
+      
+            
         })
-
         
 
 
